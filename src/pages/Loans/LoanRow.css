@@ -1,0 +1,2 @@
+/* червона смуга зліва в простроченого рядка */
+.loan-row--overdue td:first-child { box-shadow: inset 3px 0 0 var(--danger); }

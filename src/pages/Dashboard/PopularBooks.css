@@ -1,0 +1,5 @@
+.popular { list-style: none; margin: 0; padding: 0; }
+.popular__item { display: flex; gap: 8px; padding: 4px 0; }
+.popular__num { width: 22px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.popular__title { flex: 1; }
+.popular__count { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
