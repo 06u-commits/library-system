@@ -1,0 +1,50 @@
+@startuml use-case
+' Діаграма варіантів використання — ІС «Бібліотека»
+' Сценарії описано в use-cases.md
+
+left to right direction
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam packageStyle rectangle
+
+actor "Бібліотекар" as Librarian
+actor "Читач" as Reader
+
+rectangle "ІС «Бібліотека»" {
+  usecase "UC-01\nЗнайти книгу в каталозі" as UC01
+  usecase "UC-02\nДодати книгу" as UC02
+  usecase "UC-03\nВидалити книгу" as UC03
+  usecase "UC-04\nЗареєструвати читача" as UC04
+  usecase "UC-05\nПереглянути картку читача" as UC05
+  usecase "UC-06\nВидати книгу" as UC06
+  usecase "UC-07\nПовернути книгу" as UC07
+  usecase "UC-08\nПродовжити термін" as UC08
+  usecase "UC-09\nПереглянути прострочення" as UC09
+  usecase "Перевірити правила видачі" as RULES
+}
+
+Librarian --> UC01
+Librarian --> UC02
+Librarian --> UC03
+Librarian --> UC04
+Librarian --> UC05
+Librarian --> UC06
+Librarian --> UC07
+Librarian --> UC08
+Librarian --> UC09
+
+UC04 -- Reader
+UC06 -- Reader
+UC07 -- Reader
+UC08 -- Reader
+
+UC06 ..> RULES : <<include>>
+UC07 .> UC09 : <<extend>>
+
+note right of RULES
+  є вільний примірник
+  у читача немає прострочень
+  на руках менше 5 книг
+end note
+
+@enduml
