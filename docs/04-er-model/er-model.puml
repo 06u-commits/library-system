@@ -1,0 +1,94 @@
+@startuml er-model
+' ER-модель даних — інформаційна система «Бібліотека»
+' Нотація: Information Engineering («воронячі лапки»)
+'   *  — обовʼязковий атрибут (NOT NULL)
+'   /  — похідний атрибут: не зберігається, обчислюється
+'   ||--o{  — «один до нуля або багатьох»
+'   |o--o{  — «нуль або один до нуля або багатьох»
+
+hide circle
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam linetype ortho
+skinparam ArrowColor #555555
+skinparam ClassBorderColor #555555
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassHeaderBackgroundColor #EEEEEE
+
+entity "GENRE\nЖанр" as GENRE {
+  * id : string <<PK>>
+  --
+  * name : string <<UQ>>
+}
+
+entity "BOOK\nКнига" as BOOK {
+  * id : string <<PK>>
+  --
+  * title : string
+  * author : string
+    isbn : string <<UQ>>
+    year : integer
+    genreId : string <<FK>>
+  * copies : integer
+  ..
+  / available : integer
+}
+
+entity "READER\nЧитач" as READER {
+  * id : string <<PK>>
+  --
+  * card : string <<UQ>>
+  * name : string
+    phone : string
+    email : string
+  * registered : date
+}
+
+entity "LOAN\nВидача" as LOAN {
+  * id : string <<PK>>
+  --
+  * bookId : string <<FK>>
+  * readerId : string <<FK>>
+  * issueDate : date
+  * dueDate : date
+    returnDate : date
+  ..
+  / status : enum
+}
+
+GENRE |o--o{ BOOK : "класифікує"
+BOOK ||--o{ LOAN : "видається в"
+READER ||--o{ LOAN : "отримує"
+
+note right of GENRE
+  name унікальна
+  Видалення жанру не видаляє книги:
+  BOOK.genreId стає NULL
+end note
+
+note right of BOOK
+  copies >= 1
+  copies >= кількість неповернених видач
+  available = copies − COUNT(LOAN
+    де returnDate IS NULL)
+  year: 1000 … поточний рік
+end note
+
+note right of READER
+  card = «Ч-NNNN», присвоюється
+  автоматично і не повторюється
+  phone OR email обовʼязковий
+end note
+
+note bottom of LOAN
+  dueDate = issueDate + 1…90 днів
+  status:
+    returnDate IS NOT NULL → returned
+    dueDate < сьогодні → overdue
+    інакше → active
+  Видалення BOOK або READER
+  каскадно видаляє його LOAN
+end note
+
+@enduml
