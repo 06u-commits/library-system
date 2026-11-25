@@ -1,0 +1,71 @@
+/* Загальні стилі: змінні, базові елементи, кнопки, поля вводу, утиліти.
+   Стилі конкретних компонентів лежать поруч із ними у власних .css файлах. */
+
+:root {
+  --bg: #f4f4f4;
+  --surface: #ffffff;
+  --surface-2: #f8f8f8;
+  --border: #dcdcdc;
+  --border-strong: #c4c4c4;
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --primary: #3a3a3a;
+  --primary-hover: #222222;
+  --primary-soft: #ececec;
+  --danger: #9b3b33;
+  --danger-soft: #f3e6e4;
+  --warn: #7a5a1e;
+  --success: #3f6b4e;
+  --radius: 4px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+h1, h2, h3, h4 { margin: 0; font-weight: 600; }
+button, input, select { font: inherit; color: inherit; }
+
+/* ---------- поля вводу ---------- */
+input:not([type='checkbox']), select {
+  height: 34px; padding: 0 10px; border: 1px solid var(--border);
+  border-radius: var(--radius); background: var(--surface); outline: none;
+}
+input:not([type='checkbox']):focus, select:focus { border-color: #8a8a8a; }
+
+/* ---------- кнопки ---------- */
+.btn {
+  height: 34px; padding: 0 14px; border-radius: var(--radius); border: 1px solid var(--border);
+  background: var(--surface); cursor: pointer; white-space: nowrap;
+}
+.btn:hover:not(:disabled) { border-color: var(--border-strong); background: var(--surface-2); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn--sm { height: 28px; padding: 0 10px; font-size: 13px; }
+.btn--primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+.btn--primary:hover:not(:disabled) { background: var(--primary-hover); border-color: var(--primary-hover); }
+.btn--danger { background: var(--danger); border-color: var(--danger); color: #fff; }
+.btn--danger:hover:not(:disabled) { background: #852f28; border-color: #852f28; }
+.btn--ghost {
+  border-color: transparent; background: none; color: var(--text);
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--border-strong);
+}
+.btn--ghost-danger { border-color: transparent; background: none; color: var(--danger); }
+.btn--ghost:hover:not(:disabled), .btn--ghost-danger:hover:not(:disabled) { background: var(--surface-2); border-color: transparent; }
+
+.link {
+  border: 0; background: none; padding: 0; color: var(--text); cursor: pointer; font-weight: 500; text-align: left;
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--border-strong);
+}
+.link:hover { text-decoration-color: var(--text); }
+
+/* ---------- утиліти ---------- */
+.page { display: flex; flex-direction: column; gap: 16px; }
+.subhead { font-size: 13px; margin: 18px 0 8px; color: var(--muted); font-weight: 600; }
+.muted { color: var(--muted); }
+.small { font-size: 12px; }
+.text-danger { color: var(--danger); }
+.text-warn { color: var(--warn); }
