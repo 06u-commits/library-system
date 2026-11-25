@@ -1,0 +1,2 @@
+.empty { padding: 28px; text-align: center; color: var(--muted); }
+.empty--inline { padding: 0; text-align: left; }

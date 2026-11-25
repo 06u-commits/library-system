@@ -1,0 +1,8 @@
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px;
+}
+.card--flush { padding: 0; overflow: hidden; }
+
+.card__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.card__title { font-size: 15px; }

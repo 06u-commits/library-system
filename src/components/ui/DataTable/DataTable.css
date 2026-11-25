@@ -1,0 +1,23 @@
+.data-table { overflow-x: auto; }
+.data-table__table { width: 100%; border-collapse: collapse; }
+
+.data-table th,
+.data-table td {
+  padding: 9px 14px; text-align: left; vertical-align: middle;
+  border-bottom: 1px solid var(--border);
+}
+.data-table th {
+  font-size: 12px; font-weight: 600; color: var(--muted);
+  background: var(--surface-2); white-space: nowrap;
+}
+.data-table tbody tr:hover { background: var(--surface-2); }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+
+/* у картці з відступами заголовок без фону */
+.card:not(.card--flush) .data-table th { background: none; }
+
+/* типи комірок */
+.data-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.data-table .actions { text-align: right; white-space: nowrap; }
+.data-table .actions .btn + .btn { margin-left: 4px; }
+.data-table .mono { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 13px; }

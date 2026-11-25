@@ -1,0 +1,5 @@
+.status { white-space: nowrap; font-weight: 500; }
+.status--active { color: var(--success); }
+.status--overdue { color: var(--danger); }
+.status--returned { color: var(--muted); }
+.status--inline { margin-left: 8px; font-size: 12px; }

@@ -1,0 +1,29 @@
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.35);
+  display: grid; place-items: center; padding: 20px; z-index: 50;
+}
+
+.modal {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  width: 100%; max-width: 520px; max-height: calc(100vh - 40px);
+  display: flex; flex-direction: column;
+}
+.modal--wide { max-width: 820px; }
+
+.modal__head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 20px; border-bottom: 1px solid var(--border);
+}
+.modal__head h2 { font-size: 16px; }
+.modal__close {
+  border: 0; background: none; font-size: 20px; cursor: pointer;
+  line-height: 1; padding: 2px 6px; color: var(--muted);
+}
+
+.modal__body { padding: 18px 20px; overflow-y: auto; }
+.modal__body p { margin: 0; }
+
+.modal__foot {
+  display: flex; justify-content: flex-end; gap: 8px;
+  padding: 12px 20px; border-top: 1px solid var(--border); background: var(--surface-2);
+}

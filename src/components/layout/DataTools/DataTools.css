@@ -1,0 +1,13 @@
+.data-tools { margin-top: auto; border-top: 1px solid var(--border); padding-top: 12px; }
+
+.data-tools__title {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--muted); padding: 0 10px 6px;
+}
+
+.data-tools__item {
+  display: block; width: 100%; text-align: left;
+  background: none; border: 0; border-radius: var(--radius);
+  font-size: 13px; padding: 6px 10px; cursor: pointer; color: var(--muted);
+}
+.data-tools__item:hover { background: var(--surface-2); color: var(--text); }

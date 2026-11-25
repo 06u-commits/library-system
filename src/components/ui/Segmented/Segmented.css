@@ -1,0 +1,13 @@
+.segmented {
+  display: inline-flex; background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius);
+}
+
+.segmented__item {
+  border: 0; border-right: 1px solid var(--border); background: none;
+  padding: 6px 12px; cursor: pointer; color: var(--muted);
+}
+.segmented__item:last-child { border-right: 0; }
+.segmented__item.is-active { background: var(--primary-soft); color: var(--text); font-weight: 600; }
+
+.segmented__count { font-size: 12px; margin-left: 6px; color: var(--muted); font-weight: 400; }

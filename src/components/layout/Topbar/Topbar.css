@@ -1,0 +1,7 @@
+.topbar { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.topbar__title { font-size: 20px; flex: 1; }
+.topbar__menu { display: none; }
+
+@media (max-width: 820px) {
+  .topbar__menu { display: inline-block; }
+}
